@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.6.RELEASE")
+    }
+}
+ 
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+ 
+war {
+    baseName = 'spring-social-test'
+    version =  '0.1'
+}
+ 
+repositories {
+    mavenCentral()
+}
+ 
+dependencies {
+   	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+	runtime('mysql:mysql-connector-java:5.1.6')
+	compile("org.apache.tomcat.embed:tomcat-embed-jasper")
+	compile("javax.servlet:jstl")
+	compile("org.springframework.social:spring-social-security")
+    
+    compile("org.springframework.social:spring-social-twitter")
+    compile("org.springframework.social:spring-social-facebook")
+    compile("org.springframework.social:spring-social-linkedin")
+    
+	compile("org.springframework.security:spring-security-taglibs")
+}
